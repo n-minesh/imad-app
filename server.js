@@ -6,20 +6,41 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
-    title:'Article One | IMAD',
-    heading:'Article One',
-    content: ` 
-            <p>
-                This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
-                </p>
-            <p>
-                This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
-                </p>
-            <p>
-                This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
-                </p>`
-    };
+var articles ={
+    'article-one': {
+        title:'Article One | IMAD',
+        heading:'Article One',
+        date: 'Sep 01,2017',
+        content: ` 
+                <p>
+                    This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
+                    </p>
+                <p>
+                    This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
+                    </p>
+                <p>
+                    This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
+                    </p>`
+        },
+    'article-two': {
+            title:'Article Two | IMAD',
+            heading:'Article Two',
+            date: 'Sep 02,2017',
+            content: ` 
+                    <p>
+                        This is the second article.
+                        </p>`
+        },
+    'article-three': {
+             title:'Article Three | IMAD',
+             heading:'Article Three',
+             date: 'Sep 03,2017',
+             content: ` 
+                     <p>
+                         This is the third article.
+                         </p>`
+        }
+};
     
 function createTemplate (data){
     
@@ -65,8 +86,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req,res){
-    res.send(createTemplate (articleOne));
+app.get('/:articleName', function(req,res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate (articles(articleName)));
 });
 
 //app.get('/article-one', function(req,res){
