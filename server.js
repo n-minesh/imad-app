@@ -6,11 +6,11 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne= {
+var articleOne = {
     title:'Article One | IMAD',
     heading:'Article One',
     content: ` 
-    <p>
+            <p>
                 This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.This is the first article.
                 </p>
             <p>
@@ -21,14 +21,14 @@ var articleOne= {
                 </p>`
     };
     
-    function createTemplate(data){
-        var title= 'data.tile';
-        var date= 'data.date';
-        var heading= 'data.heading';
-        var content= 'data.content';
-        
-  
-        var htmlTemplate = `
+function createTemplate(data){
+    
+      var title= 'data.title';
+      var date= 'data.date';
+      var heading= 'data.heading';
+      var content= 'data.content';
+     
+      var htmlTemplate = `
         <html>
         <head>
             <title>
@@ -56,8 +56,7 @@ var articleOne= {
         </body>
         </html>
         `;
-   
-    return htmlTemplate;
+     return htmlTemplate;
 }
 
     
