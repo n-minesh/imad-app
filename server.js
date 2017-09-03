@@ -28,7 +28,7 @@ var articleOne= {
         var content= 'data.content';
         
   
-        var htnlTemplate = `
+        var htmlTemplate = `
         <html>
         <head>
             <title>
