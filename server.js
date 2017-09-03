@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-//var articles = {
+var articles = {
     'article-one': {
         title:'Article One | IMAD',
         heading:'Article One',
@@ -42,7 +42,7 @@ app.use(morgan('combined'));
         }
 };
     
-//function createTemplate (data){
+function createTemplate (data){
     
       var title= data.title;
       var date= data.date;
@@ -82,7 +82,7 @@ app.use(morgan('combined'));
 
     
   
-//app.get('/', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
